@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: Arial, sans-serif;
+  background-color: white; /* White background for the app */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #004080; /* Blueish tone for the navbar */
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
 }
 
-.card {
-  padding: 2em;
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.read-the-docs {
-  color: #888;
+.navbar .nav-right .country-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.navbar .nav-right .publish-button {
+  background-color: #0066cc; /* Blueish tone for the button */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.navbar .nav-right .credits {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-right .credits i {
+  font-size: 1.2em;
+  color: white;
+}
+
+.navbar .nav-right .credits span {
+  color: white;
+  margin-left: 5px;
+}
+
+.search-filter {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #ffffff; /* Light blueish background for search/filter */
+}
+
+.search-filter input,
+.search-filter select {
+  margin: 0 10px;
+  padding: 5px;
+  font-size: 1em;
+  color: rgb(214, 202, 202);
+}
+
+.news-section {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.news-column {
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: black; /* Set text color to black */
+}
+
+.popular-news {
+  flex: 7; /* 70% of the width */
+  background-color: #e6f0ff; /* Light blueish background for popular news */
+}
+
+.latest-news {
+  flex: 3; /* 30% of the width */
+  background-color: #f2f7ff; /* Very light blueish background for latest news */
 }

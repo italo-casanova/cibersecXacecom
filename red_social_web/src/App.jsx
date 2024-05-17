@@ -1,35 +1,90 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Web3 from 'web3';
+import YourContractABI from '../../red_social/build/contracts/NewsRanking.json'; // Replace with your contract's ABI
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('all');
+
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const web3Blockchain = new Web3('http://127.0.0.1:7545');
+      const contract = new web3Blockchain.eth.Contract(YourContractABI, 'your_contract_address');
+      const newsData = await contract.methods.getNews().call();
+      setNews(newsData);
+    }
+    fetchData();
+  }, []);
+
+  
+  // Placeholder data for the articles
+  const popularNews = [
+    { title: 'Popular News 1', content: 'Content for popular news 1...' },
+    { title: 'Popular News 2', content: 'Content for popular news 2...' },
+    { title: 'Popular News 3', content: 'Content for popular news 3...' },
+  ];
+
+  const latestNews = [
+    { title: 'Latest News 1', content: 'Content for latest news 1...' },
+    { title: 'Latest News 2', content: 'Content for latest news 2...' },
+    { title: 'Latest News 3', content: 'Content for latest news 3...' },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <div className="navbar">
+        <div className="logo">NewsApp</div>
+        <div className="nav-right">
+          <img src="country-logo.png" alt="Country Logo" className="country-logo" />
+          <button className="publish-button">Publicar</button>
+          <div className="credits">
+            <i className="fas fa-coins"></i>
+            <span> $5 </span>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="search-filter">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <option value="all">All</option>
+          <option value="popular">Popular</option>
+          <option value="latest">Latest</option>
+        </select>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="news-section">
+        <div className="news-column popular-news">
+          <h2>Popular News</h2>
+          {popularNews.map((article, index) => (
+            <div key={index}>
+              <h3>{article.title}</h3>
+              <p>{article.content}</p>
+            </div>
+          ))}
+        </div>
+        <div className="news-column latest-news">
+          <h2>Latest News</h2>
+          {latestNews.map((article, index) => (
+            <div key={index}>
+              <h3>{article.title}</h3>
+              <p>{article.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
