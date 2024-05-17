@@ -1,0 +1,60 @@
+.navbar{
+    background-color: transparent;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    z-index: 100;
+    margin: 0;
+    padding: 0rem;
+    top: 0;
+    left: 0;
+    color: #FFF;
+
+}
+.logoBox{
+    display: flex;
+    padding-left: 1.25rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    
+}
+.logo{
+    display: flex;
+    padding-left: 0.00238rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+}
+.logo-text{
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 2.8125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.pages-navbar{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    color: #FFF;
+
+}
+.pages-navbar li {
+    margin-left: 20px; /* Espaciado entre los elementos del navbar */
+  }
+  .pages-navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+.links{
+    padding-right: 5rem;
+    display: flex;
+    flex-direction: row;
+}
