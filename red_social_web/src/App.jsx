@@ -15,9 +15,12 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
+      console.log('Fetching data from the blockchain...');
       const web3Blockchain = new Web3('http://127.0.0.1:7545');
-      const contract = new web3Blockchain.eth.Contract(YourContractABI, 'your_contract_address');
-      const newsData = await contract.methods.getNews().call();
+      const contract = new web3Blockchain.eth.Contract(YourContractABI, '0x406fA5B5e34B9f3047e85d4f784C72cf2b23D0Ad');
+      const newsData = await contract.methods.getTop10News().call();
+      console.log("data from the blockchain");
+      console.log(newsData)
       setNews(newsData);
     }
     fetchData();
