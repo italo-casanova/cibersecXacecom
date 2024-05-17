@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Web3 from 'web3';
 import YourContractABI from '../../red_social/build/contracts/NewsRanking.json'; // Replace with your contract's ABI
+import Home from './pages/home/Home';
 
 
 
@@ -41,6 +42,9 @@ function App() {
   ];
 
   return (
+    <Home/>
+    
+    /*
     <div className="app-container">
       <div className="navbar">
         <div className="logo">NewsApp</div>
@@ -86,7 +90,7 @@ function App() {
           ))}
         </div>
       </div>
-    </div>
+    </div>*/
   );
 }
 
