@@ -1,0 +1,108 @@
+/* App.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: Arial, sans-serif;
+    background-color: white; /* White background for the app */
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #004080; /* Blueish tone for the navbar */
+    color: white;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .navbar .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .navbar .nav-right .country-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  .navbar .nav-right .publish-button {
+    background-color: #0066cc; /* Blueish tone for the button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .navbar .nav-right .credits {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .nav-right .credits i {
+    font-size: 1.2em;
+    color: white;
+  }
+  
+  .navbar .nav-right .credits span {
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .search-filter {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #ffffff; /* Light blueish background for search/filter */
+  }
+  
+  .search-filter input,
+  .search-filter select {
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 1em;
+    color: rgb(214, 202, 202);
+  }
+  
+  .news-section {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .news-column {
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    color: black; /* Set text color to black */
+  }
+  
+  .popular-news {
+    flex: 7; /* 70% of the width */
+    background-color: #e6f0ff; /* Light blueish background for popular news */
+  }
+  
+  .latest-news {
+    flex: 3; /* 30% of the width */
+    background-color: #f2f7ff; /* Very light blueish background for latest news */
+  }
+  
